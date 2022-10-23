@@ -40,6 +40,8 @@
 				  swiper				  
 				  expand-region
 				  bbyac
+				  projectile
+				  ivy
 				  ;; minor mode
 				  smartparens
 				  yasnippet
@@ -113,6 +115,19 @@
 (use-package bbyac
   :hook (after-init . bbyac-global-mode))
 
+;; projectile
+(use-package projectile
+  :ensure t
+  :init
+  (projectile-mode +1)
+  (setq projectile-project-search-path '("~/Projects/"))
+  :bind (:map projectile-mode-map
+              ("C-c p" . projectile-command-map)))
+;; ivy mode
+(use-package ivy
+  :hook (after-init . ivy-mode)
+  )
+
 ;; minor mode
 ;; smartparens mode
 (require 'smartparens)
@@ -149,3 +164,4 @@
   :config
   (setq lsp-bridge-python-lsp-server "jedi")
   )
+
