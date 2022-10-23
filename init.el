@@ -44,6 +44,7 @@
 				  smartparens
 				  yasnippet
 				  yasnippet-snippets
+				  company
 				  ;; major mode
 				  markdown-mode
 				  )) 
@@ -125,6 +126,10 @@
   :bind ("C-c y" . 'company-yasnippet)
   )
 
+;; company
+(use-package company
+  ;; :hook (after-init . global-company-mode)
+  )
 ;; major mode
 ;; markdown mode
 
