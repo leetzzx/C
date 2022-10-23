@@ -99,8 +99,6 @@
 
 ;; iedit-mode
 (global-set-key (kbd "M-s e") 'iedit-mode)
-;; expand region
-(global-set-key (kbd "C-=") 'er/expand-region)
 
 ;; swiper
 (use-package swiper
@@ -139,5 +137,5 @@
 (add-to-list 'load-path "~/.emacs.d/iso-pa/lsp-bridge")
 (require 'lsp-bridge)
 (global-lsp-bridge-mode)
-
-
+(setq lsp-bridge-python-lsp-server "jedi")
+(setq lsp-bridge-auto-format-code t)
