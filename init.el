@@ -134,8 +134,13 @@
   :init (setq markdown-command "multimarkdown"))
 
 ;; lsp bridge
-(add-to-list 'load-path "~/.emacs.d/iso-pa/lsp-bridge")
-(require 'lsp-bridge)
-(global-lsp-bridge-mode)
-(setq lsp-bridge-python-lsp-server "jedi")
-(setq lsp-bridge-auto-format-code t)
+(use-package lsp-bridge
+  :commands lsp-bridge-mode
+  :load-path "~/.emacs.d/iso-pa/lsp-bridge"
+  :ensure nil
+  :init
+  (use-package posframe)
+  :hook (after-init . global-lsp-bridge-mode)
+  :config
+  (setq lsp-bridge-python-lsp-server "jedi")
+  )
